@@ -31,13 +31,10 @@ var role_texts = {
 
 func _ready():
 	set_process(true)
-	get_node("SwitchLabel").show_prompt("Switch!")
 	connect("role_switch", self, "role_switch_handler")
 	
 	for i in range(3):
 		get_node("RoleImage" + str(i)).set_scale(Vector2(200.0/940, 200.0/940))
-	
-	role_switch_handler("turning", "accelerating", "shooting")
 
 func _process(delta):
 	# TODO update distance
@@ -47,6 +44,7 @@ func _process(delta):
 	pass
 	
 func role_switch_handler(role_0, role_1, role_2):
+	get_node("SwitchLabel").show_prompt("Switch!")	
 	var roles = [role_0, role_1, role_2]
 	for i in range(3):
 		get_node("RoleLabel" + str(i)).set_text(role_texts[roles[i]])

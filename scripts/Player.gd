@@ -4,11 +4,13 @@ export (PackedScene) var bullet
 onready var bullet_container = get_node("bullet_container")
 onready var gun_cd = get_node("gun_cd")
 
+signal role_switch
+
 const MOVE_SPEED = 500
 
 var velocity = Vector2()
 var rotation = 0
-var acceleration
+var acceleration = Vector2()
 
 export var rotation_speed = 3
 export var MAX_VELOCITY = 1000
@@ -21,13 +23,10 @@ var left_player_role
 var middle_player_role
 var right_player_role
 
-func set_state(state):
-	print(left_player_role)
-
-func randomize_state():
-	set_state(randi()%7+1)
-	timer.set_wait_time(rand_range(5.0, 20.0))
-	timer.start()
+func role_switch_handler(state1, state2, state3):
+	var left_player_role = state1
+	var middle_player_role = state2
+	var right_player_role = state3
 
 func _fixed_process(delta):
 	if right_player_role == 'turning':
@@ -95,15 +94,7 @@ func _fixed_process(delta):
 		move(motion)
 
 func _ready():
-	randomize()
-	set_state(-1)
-	timer = get_node("Timer")
-	timer.set_wait_time(20.0)
-	timer.connect("timeout", self, "randomize_state")
-	
-	set_fixed_process(true)
-	
-	timer.start()
+	connect("role_switch", self, "role_switch_handler")
 	set_fixed_process(true)
 
 func shoot_forward():
