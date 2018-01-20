@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 func _ready():
-	if global.last_score != 0:
-		get_node("TitleScoreLabel").set_text(str(global.last_score) + "m")
+	if global.last_score != -1:
+		get_node("TitleScoreLabel").set_text(str(round(global.last_score)) + "m")
 	else:
 		get_node("TitleScoreLabel").set_text("Threeway Freeway")
 		

@@ -19,6 +19,7 @@ var screen_size = Vector2(Globals.get("display/width"), Globals.get("display/hei
 var obstacle1 = preload("res://scenes/Obstacle1.tscn")
 var player_pos
 var last_pos
+var initial_pos
 var top_of_screen
 var bottom_of_screen
 	
@@ -32,6 +33,9 @@ func _ready():
 	rhythm_node.connect("role_switch", self, "role_switch_handler")
 	rhythm_node.connect("beat", self, "beat_handler")
 	
+	global.current_distance = 0
+	global.distance_from_line = 0
+	
 	# Debug
 	print("X: ", screen_size.x, " Y:", screen_size.y)
 	print("Player pos: ", player.get_global_pos())
@@ -41,6 +45,13 @@ func _ready():
 	top_of_screen = player_pos.y - (screen_size.y / 2)
 	bottom_of_screen = player_pos.y + (screen_size.y / 2)
 	last_pos = player_pos
+	initial_pos = player_pos
+	
+	set_process(true)
+
+func _process(delta):
+	global.current_distance = abs(player_pos.y - initial_pos.y)
+	global.distance_from_line = abs(player_pos.y - get_node("Death Wall").get_global_pos().y)
 
 func role_switch_handler(r1, r2, r3):
 	get_node("HUD").role_switch_handler(r1, r2, r3)

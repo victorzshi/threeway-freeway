@@ -35,9 +35,9 @@ func _ready():
 
 func _process(delta):
 	# TODO update distance
-	get_node("DistanceLabel").set_text("" + "m")
+	get_node("DistanceLabel").set_text(str(round(global.current_distance)) + "m")
 	# TODO update difference
-	get_node("DifferenceLabel").set_text("-" + "m")	
+	get_node("DifferenceLabel").set_text(str(round(global.distance_from_line)) + "m from line")	
 	pass
 	
 func role_switch_handler(role_0, role_1, role_2):
