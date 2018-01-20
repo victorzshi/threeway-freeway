@@ -41,7 +41,7 @@ bullet = ExtResource( 2 )
 rotation_speed = 3
 MAX_VELOCITY = 1000
 burst = 500
-friction = 0.65
+friction = 0.95
 
 [node name="Sprite" type="Sprite" parent="."]
 

@@ -2,12 +2,12 @@ extends Node2D
 
 # Game parameters
 var obstacle_interval = 1000 # Higher is easier
-var difficulty_scale = 0.8 # Lower is harder
-var level_1 = 10000
-var level_2 = 20000
-var level_3 = 30000
-var level_4 = 40000
-var level_5 = 50000
+var difficulty_scale = 0.5 # Lower is harder
+var level_1 = 200
+var level_2 = 300
+var level_3 = 400
+var level_4 = 500
+var level_5 = 600
 
 # Nodes
 onready var player = get_node("Player")
@@ -85,36 +85,36 @@ func _on_Player_move():
 	if current_pos.y > -level_1:
 		if (last_pos.y - current_pos.y > obstacle_interval):
 			# Generate new obstacle
-			generate_obstacles(1, "unbreakable")
+			generate_obstacles(3, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_2:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			# Generate new obstacle
-			generate_obstacles(1, "unbreakable")
+			generate_obstacles(3, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_3:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			# Generate new obstacle
-			generate_obstacles(2, "unbreakable")
+			generate_obstacles(4, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_4:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
 			# Generate new obstacle
-			generate_obstacles(2, "unbreakable")
+			generate_obstacles(5, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_5:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
 			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
+			generate_obstacles(6, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	else:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 3)):
 			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
+			generate_obstacles(7, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos

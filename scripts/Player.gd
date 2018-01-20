@@ -16,7 +16,7 @@ signal move
 export var rotation_speed = 3
 export var MAX_VELOCITY = 1000
 export var burst = 500
-export var friction = 0.65
+export var friction = 0.95
 
 var timer
 
