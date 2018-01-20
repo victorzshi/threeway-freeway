@@ -30,10 +30,11 @@ texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-editor/display_folded = true
+transform/pos = Vector2( 372.595, 417.91 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+transform/pos = Vector2( -0.28772, 4.74747 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -44,7 +45,7 @@ limit/right = 10000000
 limit/bottom = 10000000
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
-smoothing/enable = true
+smoothing/enable = false
 smoothing/speed = 5.0
 drag_margin/left = 0.2
 drag_margin/top = 0.2
@@ -54,7 +55,6 @@ script/script = ExtResource( 4 )
 
 [node name="Death Wall" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 471.397, 784.41 )
 input/pickable = false
 collision/layers = 1
@@ -64,7 +64,8 @@ script/script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Death Wall"]
 
-transform/scale = Vector2( 1.98709, 0.0908032 )
+transform/pos = Vector2( 62.068, 0 )
+transform/scale = Vector2( 1.11871, 0.0908032 )
 texture = ExtResource( 6 )
 
 [node name="Collector" type="Area2D" parent="Death Wall"]
@@ -87,5 +88,7 @@ trigger = true
 _update_shape_index = 0
 
 [connection signal="move" from="Player" to="." method="_on_Player_move"]
+
+[connection signal="move" from="Player" to="Player/Camera2D" method="update_camera"]
 
 

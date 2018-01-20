@@ -88,6 +88,19 @@ func _fixed_process(delta):
 
 	var motion = velocity * delta
 	motion = move(motion)
+	if(Input.is_action_pressed("ui_up")):
+		move( Vector2(0,- 10) ) #move down 1 pixel per physics frame
+		is_moving = true
+	if(Input.is_action_pressed("ui_right")):
+		move( Vector2(10, 0) ) #move down 1 pixel per physics frame
+		is_moving = true
+	if(Input.is_action_pressed("ui_left")):
+		move( Vector2(-10, 0) ) #move down 1 pixel per physics frame
+		is_moving = true
+	if(Input.is_action_pressed("ui_down")):
+		move( Vector2(0, 10) ) #move down 1 pixel per physics frame
+		is_moving = true
+		
 	if is_moving:
 		emit_signal("move")
 	set_rot(rotation - PI/2)
@@ -97,6 +110,8 @@ func _fixed_process(delta):
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 		move(motion)
+	
+	is_moving = false
 
 func _ready():
 	set_fixed_process(true)
