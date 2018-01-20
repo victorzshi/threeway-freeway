@@ -12,6 +12,9 @@ var velocity = Vector2()
 var rotation = 0
 var acceleration = Vector2()
 
+var is_moving
+signal move
+
 export var rotation_speed = 3
 export var MAX_VELOCITY = 1000
 export var burst = 500
@@ -29,6 +32,7 @@ func role_switch_handler(state1, state2, state3):
 	var right_player_role = state3
 
 func _fixed_process(delta):
+	
 	if right_player_role == 'turning':
 		if Input.is_action_pressed("right_turn_left"):
 			rotation += rotation_speed * delta
@@ -37,11 +41,13 @@ func _fixed_process(delta):
 	elif right_player_role == 'accelerating':
 		if Input.is_action_pressed("right_accelerate"):
 			acceleration = Vector2(burst, 0).rotated(rotation)
+			is_moving = true
 		else:
 			acceleration = Vector2(0,0)
 			velocity = velocity * friction 
 			if(Input.is_action_pressed("right_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
+				is_moving = true
 	elif right_player_role == 'shooting':
 		if gun_cd.get_time_left() == 0:
 			if Input.is_action_pressed("right_shoot_forward"):
@@ -58,11 +64,13 @@ func _fixed_process(delta):
 	elif middle_player_role == 'accelerating':
 		if Input.is_action_pressed("middle_accelerate"):
 			acceleration = Vector2(burst, 0).rotated(rotation)
+			is_moving = true
 		else:
 			acceleration = Vector2(0,0)
 			velocity = velocity * friction 
 			if(Input.is_action_pressed("middle_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
+				is_moving = true
 
 	if left_player_role == 'turning':
 		if Input.is_action_pressed("left_turn_left"):
@@ -72,11 +80,13 @@ func _fixed_process(delta):
 	elif left_player_role == 'accelerating':
 		if Input.is_action_pressed("left_accelerate"):
 			acceleration = Vector2(burst, 0).rotated(rotation)
+			is_moving = true
 		else:
 			acceleration = Vector2(0,0)
 			velocity = velocity * friction 
 			if(Input.is_action_pressed("left_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
+				is_moving = true
 
 	acceleration += velocity * delta
 	velocity += acceleration * delta
@@ -85,6 +95,8 @@ func _fixed_process(delta):
 
 	var motion = velocity * delta
 	motion = move(motion)
+	if is_moving:
+		emit_signal("move")
 	set_rot(rotation - PI/2)
 
 	if (is_colliding()):

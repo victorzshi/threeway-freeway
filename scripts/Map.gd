@@ -28,14 +28,15 @@ func _ready():
 	# Debug
 	print("X: ", screen_size.x, " Y:", screen_size.y)
 	print("Camera pos: ", camera.get_global_pos())
+	print("Player pos: ", player.get_global_pos())
 	
 	# Set initial player position for obstacle generation
 	last_pos = player.get_global_pos()
 	
 	# Set initial camera position
-	camera_pos = camera.get_global_pos()
-	top_of_screen = camera_pos.y - (screen_size.y / 2)
-	bottom_of_screen = camera_pos.y + (screen_size.y / 2)
+#	camera_pos = camera.get_global_pos()
+	top_of_screen = last_pos.y - (screen_size.y / 2)
+	bottom_of_screen = last_pos.y + (screen_size.y / 2)
 
 	set_process(true)
 
@@ -43,7 +44,7 @@ func _process(delta):
 	
 	# Current camera and screen positions
 	
-	camera_pos = camera.get_global_pos()
+	camera_pos = player.get_global_pos()
 	top_of_screen = camera_pos.y - (screen_size.y / 2)
 	bottom_of_screen = camera_pos.y + (screen_size.y / 2)
 	
