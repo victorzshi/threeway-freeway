@@ -183,7 +183,7 @@ centered = false
 
 [node name="BeatImage" type="Sprite" parent="."]
 
-visibility/opacity = 0.5
+visibility/self_opacity = 0.0
 texture = ExtResource( 3 )
 centered = false
 script/script = ExtResource( 4 )
