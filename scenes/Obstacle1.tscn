@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"obstacle",
+]]
 
 transform/pos = Vector2( 41.7914, -0.0848255 )
 transform/scale = Vector2( 6.65318, 2.94665 )
