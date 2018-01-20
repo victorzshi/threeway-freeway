@@ -134,8 +134,8 @@ func shoot_left():
 	bullet_container.add_child(shot)
 	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())
 
-func _on_RhythmManager_role_switch(state1, state2, state3):
-	print("switch")
-	var left_player_role = state1
-	var middle_player_role = state2
-	var right_player_role = state3
+func role_switch_handler(state1, state2, state3):
+	print("switch " + state1 + state2 + state3)
+	left_player_role = state1
+	middle_player_role = state2
+	right_player_role = state3

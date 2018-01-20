@@ -28,7 +28,10 @@ onready var back2_pos = back2.get_pos()
 onready var back1_height = back1.get_texture().get_height()
 	
 func _ready():
-
+	var rhythm_node = get_node("RhythmManager")
+	rhythm_node.connect("role_switch", self, "role_switch_handler")
+	rhythm_node.connect("beat", self, "beat_handler")
+	
 	# Debug
 	print("X: ", screen_size.x, " Y:", screen_size.y)
 	print("Player pos: ", player.get_global_pos())
@@ -38,7 +41,14 @@ func _ready():
 	top_of_screen = player_pos.y - (screen_size.y / 2)
 	bottom_of_screen = player_pos.y + (screen_size.y / 2)
 	last_pos = player_pos
-	
+
+func role_switch_handler(r1, r2, r3):
+	get_node("HUD").role_switch_handler(r1, r2, r3)
+	get_node("Player").role_switch_handler(r1, r2, r3)
+
+func beat_handler(beat_cnt):
+	get_node("HUD").beat_handler(beat_cnt)
+
 func generate_obstacles(num, type):
 	# Type should be unbreakable or breakable
 	for i in range(num):

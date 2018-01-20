@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal role_switch
-
 var distance = 0
 var difference  = 0
 
@@ -29,10 +27,8 @@ var role_texts = {
 	"shooting": 	"Shooting"
 }
 
-func _ready():
+func _ready():	
 	set_process(true)
-	connect("role_switch", self, "role_switch_handler")
-	
 	for i in range(3):
 		get_node("RoleImage" + str(i)).set_scale(Vector2(200.0/940, 200.0/940))
 
@@ -49,3 +45,7 @@ func role_switch_handler(role_0, role_1, role_2):
 	for i in range(3):
 		get_node("RoleLabel" + str(i)).set_text(role_texts[roles[i]])
 		get_node("RoleImage" + str(i)).set_texture(role_textures[roles[i]][i])
+
+func beat_handler(beat_cnt):
+	#process beat
+	pass
