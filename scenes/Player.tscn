@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://scenes/player_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/ship.png" type="Texture" id=3]
+[ext_resource path="res://assets/ship.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -37,7 +36,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-bullet = ExtResource( 2 )
+bullet = null
 rotation_speed = 3
 MAX_VELOCITY = 1000
 burst = 500
@@ -47,7 +46,7 @@ friction = 0.65
 
 transform/pos = Vector2( 0, -1 )
 transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
@@ -58,32 +57,11 @@ polygon = Vector2Array( 0.190477, -7.3399, 7.14286, 7.93103, 0.761903, 2.51232, 
 shape_range = Vector2( 0, 2 )
 trigger = false
 
-[node name="bullet_container" type="Node" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
-autostart = false
-
-[node name="front" type="Position2D" parent="."]
-
-transform/pos = Vector2( 0, -30 )
-
-[node name="right" type="Position2D" parent="."]
-
-transform/pos = Vector2( 20, 0.169968 )
-
-[node name="left" type="Position2D" parent="."]
-
-transform/pos = Vector2( -20, 0 )
-
-[node name="gun_cd" type="Timer" parent="."]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
 autostart = false
 
 

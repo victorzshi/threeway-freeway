@@ -12,8 +12,8 @@ var level_5 = 50000
 # References
 var screen_size = Vector2(Globals.get("display/width"), Globals.get("display/height"))
 var obstacle1 = preload("res://scenes/Obstacle1.tscn")
+var player_pos
 var last_pos
-var camera_pos
 var top_of_screen
 var bottom_of_screen
 	
@@ -31,22 +31,18 @@ func _ready():
 	print("Player pos: ", player.get_global_pos())
 	
 	# Set initial player position for obstacle generation
-	last_pos = player.get_global_pos()
-	
-	# Set initial camera position
-#	camera_pos = camera.get_global_pos()
-	top_of_screen = last_pos.y - (screen_size.y / 2)
-	bottom_of_screen = last_pos.y + (screen_size.y / 2)
+	player_pos = player.get_global_pos()
+	top_of_screen = player_pos.y - (screen_size.y / 2)
+	bottom_of_screen = player_pos.y + (screen_size.y / 2)
+	last_pos = player_pos
 
 	set_process(true)
 
 func _process(delta):
 	
 	# Current camera and screen positions
-	
-	camera_pos = player.get_global_pos()
-	top_of_screen = camera_pos.y - (screen_size.y / 2)
-	bottom_of_screen = camera_pos.y + (screen_size.y / 2)
+	top_of_screen = player_pos.y - (screen_size.y / 2)
+	bottom_of_screen = player_pos.y + (screen_size.y / 2)
 	
 	# Generate infinite road background image
 	
@@ -70,7 +66,7 @@ func _process(delta):
 	# at a random x-coord along screen dimensions
 	# Also make it possible generate more than one obstacle along same line on y axis
 	
-	var current_pos = player.get_global_pos()
+	var current_pos = player_pos
 	
 	if current_pos.y > -level_1:
 		if (last_pos.y - current_pos.y > obstacle_interval):
@@ -119,3 +115,6 @@ func generate_obstacles(num, type):
 		randomize()
 		obstacle.set_pos(Vector2(screen_size.x * randf(), top_of_screen - 100))
 		add_child(obstacle)
+
+func _on_Player_move():
+	player_pos = player.get_global_pos()

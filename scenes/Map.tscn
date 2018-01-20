@@ -30,6 +30,8 @@ texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
+bullet = null
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 anchor_mode = 1
@@ -82,5 +84,7 @@ transform/pos = Vector2( 0, -15.4756 )
 shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0
+
+[connection signal="move" from="Player" to="." method="_on_Player_move"]
 
 
