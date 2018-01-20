@@ -20,8 +20,6 @@ texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 300, 215 )
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 anchor_mode = 1
