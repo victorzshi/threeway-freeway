@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scenes/Unbreakable Obstacle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+
+[node name="Map" type="Node2D"]
+
+[node name="Unbreakable Obstacle" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 625.509, 88.8296 )
+
+[node name="Unbreakable Obstacle1" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 392.331, 155.452 )
+
+[node name="Unbreakable Obstacle5" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 397.883, 227.626 )
+
+[node name="Unbreakable Obstacle2" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 627.359, 214.672 )
+
+[node name="Unbreakable Obstacle3" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 608.853, 161.004 )
+
+[node name="Unbreakable Obstacle4" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 381.227, 98.0827 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 494.115, 155.452 )
+
+

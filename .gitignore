@@ -1,3 +1,6 @@
+# Godot local cache
+.fscache
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
