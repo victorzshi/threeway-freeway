@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+export (PackedScene) var bullet
+onready var bullet_container = get_node("bullet_container")
+onready var gun_cd = get_node("gun_cd")
+
 const MOVE_SPEED = 500
 
 var velocity = Vector2()
@@ -20,35 +24,6 @@ var middle_player_role
 var right_player_role
 
 func set_state(state):
-	if state == 1:
-		left_player_role = 'turning'
-		middle_player_role = 'accelerating'
-		right_player_role = 'shooting'
-	elif state == 2:
-		left_player_role = 'turning'
-		middle_player_role = 'shooting'
-		right_player_role = 'accelerating'
-	elif state == 3:
-		left_player_role = 'accelerating'
-		middle_player_role = 'shooting'
-		right_player_role = 'turning'
-	elif state == 4:
-		left_player_role = 'accelerating'
-		middle_player_role = 'turning'
-		right_player_role = 'shooting'
-	elif state == 5:
-		left_player_role = 'shooting'
-		middle_player_role = 'turning'
-		right_player_role = 'accelerating'
-	elif state == 6:
-		left_player_role = 'shooting'
-		middle_player_role = 'accelerating'
-		right_player_role = 'turning'
-	else:
-		left_player_role = 'turning'
-		middle_player_role = 'accelerating'
-		right_player_role = 'shooting'
-	
 	print(left_player_role)
 
 func randomize_state():
@@ -73,7 +48,14 @@ func _fixed_process(delta):
 			if(Input.is_action_pressed("right_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
 				is_moving = true
-
+	elif right_player_role == 'shooting':
+		if gun_cd.get_time_left() == 0:
+			if Input.is_action_pressed("right_shoot_forward"):
+				shoot_forward()
+			if Input.is_action_pressed("right_shoot_right"):
+				shoot_right()
+			if Input.is_action_pressed("right_shoot_left"):
+				shoot_left()
 	if middle_player_role == 'turning':
 		if Input.is_action_pressed("middle_turn_left"):
 			rotation += rotation_speed * delta
@@ -132,3 +114,21 @@ func _ready():
 	timer.start()
 	is_moving = false
 	set_fixed_process(true)
+
+func shoot_forward():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot(), get_node("front").get_global_pos())
+
+func shoot_right():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot() - PI/2, get_node("right").get_global_pos())
+
+func shoot_left():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())

@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scripts/UISwitch.gd" type="Script" id=2]
+[ext_resource path="res://assets/beatGradient.png" type="Texture" id=3]
+[ext_resource path="res://scripts/UIBeat.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -178,5 +180,12 @@ centered = false
 transform/pos = Vector2( 550, 550 )
 transform/scale = Vector2( 1e-05, 1e-05 )
 centered = false
+
+[node name="BeatImage" type="Sprite" parent="."]
+
+visibility/opacity = 0.5
+texture = ExtResource( 3 )
+centered = false
+script/script = ExtResource( 4 )
 
 
