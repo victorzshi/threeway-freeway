@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/ship.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ship.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -36,7 +37,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-bullet = null
+bullet = ExtResource( 2 )
 rotation_speed = 3
 MAX_VELOCITY = 1000
 burst = 500
@@ -46,7 +47,7 @@ friction = 0.65
 
 transform/pos = Vector2( 0, -1 )
 transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
