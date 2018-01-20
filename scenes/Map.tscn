@@ -149,4 +149,6 @@ script/script = ExtResource( 9 )
 
 [connection signal="move" from="Player" to="." method="_on_Player_move"]
 
+[connection signal="move" from="Player" to="Player/Camera2D" method="update_camera"]
+
 
