@@ -4,8 +4,6 @@ export (PackedScene) var bullet
 onready var bullet_container = get_node("bullet_container")
 onready var gun_cd = get_node("gun_cd")
 
-signal role_switch
-
 const MOVE_SPEED = 500
 
 var velocity = Vector2()
@@ -25,11 +23,6 @@ var timer
 var left_player_role
 var middle_player_role
 var right_player_role
-
-func role_switch_handler(state1, state2, state3):
-	var left_player_role = state1
-	var middle_player_role = state2
-	var right_player_role = state3
 
 func _fixed_process(delta):
 	
@@ -106,7 +99,6 @@ func _fixed_process(delta):
 		move(motion)
 
 func _ready():
-	connect("role_switch", self, "role_switch_handler")
 	set_fixed_process(true)
 
 func shoot_forward():
@@ -126,3 +118,9 @@ func shoot_left():
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
 	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())
+
+func _on_RhythmManager_role_switch(state1, state2, state3):
+	print("switch")
+	var left_player_role = state1
+	var middle_player_role = state2
+	var right_player_role = state3

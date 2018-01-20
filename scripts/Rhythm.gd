@@ -1,6 +1,7 @@
 extends StreamPlayer
 
-signal start_game
+signal beat
+signal role_switch
 
 var beat_interval = 60.0/127.0
 var timer = 0

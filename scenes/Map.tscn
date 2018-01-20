@@ -39,4 +39,6 @@ transform/pos = Vector2( 494.115, 155.452 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
+[connection signal="role_switch" from="RhythmManager" to="Player" method="_on_RhythmManager_role_switch" binds= [ "", "", "" ]]
+
 
