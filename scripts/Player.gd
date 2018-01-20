@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MOVE_SPEED = 200
+const MOVE_SPEED = 500
 
 var velocity = Vector2()
 
@@ -10,6 +10,8 @@ func _fixed_process(delta):
 		velocity.x = - MOVE_SPEED
 	elif (Input.is_action_pressed("ui_right")):
 		velocity.x =   MOVE_SPEED
+	elif (Input.is_action_pressed("ui_up")):
+		velocity.y = - MOVE_SPEED
 	else:
 		velocity.x = 0
 
