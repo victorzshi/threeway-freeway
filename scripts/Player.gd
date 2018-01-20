@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+export (PackedScene) var bullet
+onready var bullet_container = get_node("bullet_container")
+onready var gun_cd = get_node("gun_cd")
+
 const MOVE_SPEED = 500
 
 var velocity = Vector2()
@@ -68,7 +72,14 @@ func _fixed_process(delta):
 			velocity = velocity * friction 
 			if(Input.is_action_pressed("right_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
-
+	elif right_player_role == 'shooting':
+		if gun_cd.get_time_left() == 0:
+			if Input.is_action_pressed("right_shoot_forward"):
+				shoot_forward()
+			if Input.is_action_pressed("right_shoot_right"):
+				shoot_right()
+			if Input.is_action_pressed("right_shoot_left"):
+				shoot_left()
 	if middle_player_role == 'turning':
 		if Input.is_action_pressed("middle_turn_left"):
 			rotation += rotation_speed * delta
@@ -123,3 +134,21 @@ func _ready():
 	
 	timer.start()
 	set_fixed_process(true)
+
+func shoot_forward():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot(), get_node("front").get_global_pos())
+
+func shoot_right():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot() - PI/2, get_node("right").get_global_pos())
+
+func shoot_left():
+	gun_cd.start()
+	var shot = bullet.instance()
+	bullet_container.add_child(shot)
+	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())

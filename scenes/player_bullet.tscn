@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scenes/player_bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/bullet.png" type="Texture" id=2]
+
+[node name="player_bullet" type="Area2D"]
+
+transform/scale = Vector2( 0.3, 0.3 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+speed = 1000
+
+[node name="bullet" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0.0296264, 0.230576 )
+transform/scale = Vector2( 1.99041, 4.99719 )
+trigger = false
+_update_shape_index = 0
+
+
