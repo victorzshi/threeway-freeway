@@ -7,11 +7,15 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"obstacle",
+]]
 
+transform/pos = Vector2( 41.7914, -0.0848255 )
+transform/scale = Vector2( 6.65318, 2.94665 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 9.53858, 0, 0, 3.50818, -25.2707, -4.43055 )
+shapes/0/transform = Matrix32( 2.19007, 0, 0, 0.846165, -5.94183, -1.23224 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -22,13 +26,13 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.25, 0.25 )
+transform/scale = Vector2( 0.0567743, 0.0567743 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -25.2707, -4.43055 )
-transform/scale = Vector2( 9.53858, 3.50818 )
+transform/pos = Vector2( -5.94183, -1.23224 )
+transform/scale = Vector2( 2.19007, 0.846165 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

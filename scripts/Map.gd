@@ -27,7 +27,7 @@ func _ready():
 
 	# Debug
 	print("X: ", screen_size.x, " Y:", screen_size.y)
-	print("Camera pos: ", get_node("Player/Camera2D").get_global_pos())
+	print("Camera pos: ", camera.get_global_pos())
 	
 	# Set initial player position for obstacle generation
 	last_pos = player.get_global_pos()
