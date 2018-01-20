@@ -147,8 +147,8 @@ script/script = ExtResource( 9 )
 
 [node name="RhythmManager" parent="." instance=ExtResource( 10 )]
 
-[connection signal="move" from="Player" to="." method="_on_Player_move"]
-
 [connection signal="move" from="Player" to="Player/Camera2D" method="update_camera"]
+
+[connection signal="move" from="Player" to="." method="_on_Player_move"]
 
 
