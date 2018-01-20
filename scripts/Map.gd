@@ -56,10 +56,10 @@ func _on_Player_move():
 	bottom_of_screen = player_pos.y + (screen_size.y / 2)
 	
 	# Generate infinite road background image
-	if back1_pos.y > bottom_of_screen:
+	if back1_pos.y > bottom_of_screen + back1_height / 2:
 		print("Moving Background1")
 		back1_pos.y = back1_pos.y - (2 * back1_height)
-	if back2_pos.y > bottom_of_screen:
+	if back2_pos.y > bottom_of_screen + back1_height / 2:
 		print("Moving Background2")
 		back2_pos.y = back2_pos.y - (2 * back1_height)
 		
