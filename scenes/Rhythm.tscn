@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/bgm.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Rhythm.gd" type="Script" id=2]
 
-[node name="StreamPlayer" type="StreamPlayer"]
+[node name="RhythmManager" type="StreamPlayer"]
 
 stream/stream = ExtResource( 1 )
 stream/play = false

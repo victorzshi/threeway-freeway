@@ -8,7 +8,8 @@ const MOVE_SPEED = 500
 
 var velocity = Vector2()
 var rotation = 0
-var acceleration
+var acceleration = Vector2()
+
 var is_moving
 signal move
 
@@ -22,14 +23,6 @@ var timer
 var left_player_role
 var middle_player_role
 var right_player_role
-
-func set_state(state):
-	print(left_player_role)
-
-func randomize_state():
-	set_state(randi()%7+1)
-	timer.set_wait_time(rand_range(5.0, 20.0))
-	timer.start()
 
 func _fixed_process(delta):
 	
@@ -106,13 +99,6 @@ func _fixed_process(delta):
 		move(motion)
 
 func _ready():
-	randomize()
-	set_state(-1)
-	timer = get_node("Timer")
-	timer.set_wait_time(20.0)
-	timer.connect("timeout", self, "randomize_state")
-	timer.start()
-	is_moving = false
 	set_fixed_process(true)
 
 func shoot_forward():
@@ -132,3 +118,9 @@ func shoot_left():
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
 	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())
+
+func _on_RhythmManager_role_switch(state1, state2, state3):
+	print("switch")
+	var left_player_role = state1
+	var middle_player_role = state2
+	var right_player_role = state3

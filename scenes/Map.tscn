@@ -30,7 +30,7 @@ texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-bullet = null
+editor/display_folded = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -54,6 +54,7 @@ script/script = ExtResource( 4 )
 
 [node name="Death Wall" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 471.397, 784.41 )
 input/pickable = false
 collision/layers = 1
