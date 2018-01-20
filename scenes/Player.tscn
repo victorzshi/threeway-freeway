@@ -36,6 +36,10 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+rotation_speed = 3
+MAX_VELOCITY = 1000
+burst = 500
+friction = 0.65
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -51,5 +55,12 @@ build_mode = 0
 polygon = Vector2Array( 0.190477, -7.3399, 7.14286, 7.93103, 0.761903, 2.51232, -0.571429, 2.41379, -6.28572, 7.43842 )
 shape_range = Vector2( 0, 2 )
 trigger = false
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 
