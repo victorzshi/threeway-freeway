@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://scripts/UISwitch.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://assets/NotoSans-BoldItalic.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 64
+font/use_mipmaps = false
+font/use_filter = false
+font/font = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+
+font_path = "res://assets/NotoSans-BoldItalic.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+
+font/size = 36
+font/use_mipmaps = false
+font/use_filter = false
+font/font = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+
+font_path = "res://assets/NotoSans-BoldItalic.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+
+font/size = 94
+font/use_mipmaps = false
+font/use_filter = false
+font/font = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+
+font_path = "res://assets/NotoSans-BoldItalic.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+
+font/size = 48
+font/use_mipmaps = false
+font/use_filter = false
+font/font = SubResource( 7 )
+
+[node name="HUD" type="CanvasLayer"]
+
+layer = 4
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
+
+[node name="DistanceLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = 0.0
+margin/right = 296.0
+margin/bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+text = "Distance"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="DifferenceLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = 64.0
+margin/right = 216.0
+margin/bottom = 114.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.574219, 0.574219, 1 )
+text = "Difference"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SwitchLabel" type="Label" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 200.0
+margin/top = 300.0
+margin/right = 200.0
+margin/bottom = 429.0
+custom_fonts/font = SubResource( 6 )
+text = "Switch!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 2 )
+
+[node name="RoleLabel0" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 720.0
+margin/right = 250.0
+margin/bottom = 780.0
+custom_fonts/font = SubResource( 8 )
+text = "Role0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RoleLabel1" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 300.0
+margin/top = 720.0
+margin/right = 500.0
+margin/bottom = 787.0
+custom_fonts/font = SubResource( 8 )
+text = "Role1"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RoleLabel2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 550.0
+margin/top = 720.0
+margin/right = 750.0
+margin/bottom = 787.0
+custom_fonts/font = SubResource( 8 )
+text = "Role2"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RoleImage0" type="Sprite" parent="."]
+
+transform/pos = Vector2( 50, 550 )
+transform/scale = Vector2( 1e-05, 1e-05 )
+centered = false
+
+[node name="RoleImage1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 300, 550 )
+transform/scale = Vector2( 1e-05, 1e-05 )
+centered = false
+
+[node name="RoleImage2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 550, 550 )
+transform/scale = Vector2( 1e-05, 1e-05 )
+centered = false
+
+
