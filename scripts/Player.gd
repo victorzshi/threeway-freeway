@@ -22,35 +22,6 @@ var middle_player_role
 var right_player_role
 
 func set_state(state):
-	if state == 1:
-		left_player_role = 'turning'
-		middle_player_role = 'accelerating'
-		right_player_role = 'shooting'
-	elif state == 2:
-		left_player_role = 'turning'
-		middle_player_role = 'shooting'
-		right_player_role = 'accelerating'
-	elif state == 3:
-		left_player_role = 'accelerating'
-		middle_player_role = 'shooting'
-		right_player_role = 'turning'
-	elif state == 4:
-		left_player_role = 'accelerating'
-		middle_player_role = 'turning'
-		right_player_role = 'shooting'
-	elif state == 5:
-		left_player_role = 'shooting'
-		middle_player_role = 'turning'
-		right_player_role = 'accelerating'
-	elif state == 6:
-		left_player_role = 'shooting'
-		middle_player_role = 'accelerating'
-		right_player_role = 'turning'
-	else:
-		left_player_role = 'turning'
-		middle_player_role = 'accelerating'
-		right_player_role = 'shooting'
-	
 	print(left_player_role)
 
 func randomize_state():
