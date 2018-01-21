@@ -99,12 +99,12 @@ func _fixed_process(delta):
 				shoot_left()
 
 	acceleration += velocity * delta
-	#if abs(velocity.x) <= 15.0 and abs(velocity.y) <= 15.0:
-	#	get_node("Smoke").hide()
-	#	get_node("Fire").hide()
-	#else:
-	#	get_node("Smoke").show()
-	#	get_node("Fire").show()
+	if abs(velocity.x) <= 15.0 and abs(velocity.y) <= 15.0:
+		get_node("Smoke").hide()
+		get_node("Fire").hide()
+	else:
+		get_node("Smoke").show()
+		get_node("Fire").show()
 	
 	velocity += acceleration * delta
 	if velocity.y <= -MAX_VELOCITY:
