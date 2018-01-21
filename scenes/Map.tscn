@@ -39,8 +39,7 @@ modulate = Color( 0.363281, 0.339157, 0.339157, 1 )
 
 [node name="Death Wall" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 474.187, 1386.94 )
+transform/pos = Vector2( 474.187, 1500 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1

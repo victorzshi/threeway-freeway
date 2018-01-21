@@ -138,13 +138,13 @@ func shoot_right():
 	gun_cd.start()
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
-	shot.start(get_rot() - PI/2, get_node("right").get_global_pos())
+	shot.start(get_rot() - PI/4, get_node("right").get_global_pos())
 
 func shoot_left():
 	gun_cd.start()
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
-	shot.start(get_rot() + PI/2, get_node("left").get_global_pos())
+	shot.start(get_rot() + PI/4, get_node("left").get_global_pos())
 
 func role_switch_handler(state1, state2, state3):
 	print("switch " + state1 + state2 + state3)
