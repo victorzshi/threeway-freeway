@@ -25,6 +25,7 @@ var middle_player_role
 var right_player_role
 
 func _fixed_process(delta):
+	var accel_flag = false
 	
 	if right_player_role == 'turning':
 		if Input.is_action_pressed("right_turn_left"):
@@ -34,6 +35,7 @@ func _fixed_process(delta):
 	elif right_player_role == 'accelerating':
 		if Input.is_action_pressed("right_accelerate"):
 			acceleration = Vector2(burst, 0).rotated(rotation)
+			accel_flag = true
 			is_moving = true
 		else:
 			acceleration = Vector2(0,0)
@@ -57,6 +59,7 @@ func _fixed_process(delta):
 			rotation -= rotation_speed * delta
 	elif middle_player_role == 'accelerating':
 		if Input.is_action_pressed("middle_accelerate"):
+			accel_flag = true			
 			acceleration = Vector2(burst, 0).rotated(rotation)
 			is_moving = true
 		else:
@@ -82,6 +85,7 @@ func _fixed_process(delta):
 	elif left_player_role == 'accelerating':
 		if Input.is_action_pressed("left_accelerate"):
 			acceleration = Vector2(burst, 0).rotated(rotation)
+			accel_flag = true			
 			is_moving = true
 		else:
 			acceleration = Vector2(0,0)
@@ -99,12 +103,8 @@ func _fixed_process(delta):
 				shoot_left()
 
 	acceleration += velocity * delta
-	if abs(velocity.x) <= 15.0 and abs(velocity.y) <= 15.0:
-		get_node("Smoke").set_emitting(false)
-		get_node("Fire").set_emitting(false)
-	else:
-		get_node("Smoke").set_emitting(true)
-		get_node("Fire").set_emitting(true)
+	get_node("Smoke").set_emitting(accel_flag)
+	get_node("Fire").set_emitting(accel_flag)
 	
 	velocity += acceleration * delta
 	if velocity.y <= -MAX_VELOCITY:
