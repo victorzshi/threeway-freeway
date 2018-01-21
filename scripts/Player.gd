@@ -100,11 +100,11 @@ func _fixed_process(delta):
 
 	acceleration += velocity * delta
 	if abs(velocity.x) <= 15.0 and abs(velocity.y) <= 15.0:
-		get_node("Smoke").hide()
-		get_node("Fire").hide()
+		get_node("Smoke").set_emitting(false)
+		get_node("Fire").set_emitting(false)
 	else:
-		get_node("Smoke").show()
-		get_node("Fire").show()
+		get_node("Smoke").set_emitting(true)
+		get_node("Fire").set_emitting(true)
 	
 	velocity += acceleration * delta
 	if velocity.y <= -MAX_VELOCITY:
