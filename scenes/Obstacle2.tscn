@@ -1,13 +1,41 @@
-[gd_scene format=1]
+[gd_scene load_steps=3 format=1]
 
-[node name="Obstacle2" type="StaticBody2D"]
+[ext_resource path="res://assets/breakable.png" type="Texture" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"obs_destruct",
+]]
+
+transform/pos = Vector2( -0.515594, -0.0345764 )
+transform/scale = Vector2( 1.34834, 1.34834 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.86675, 0, 0, 1.88815, -0.647677, -0.60135 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -1.06975, -0.645504 )
+transform/scale = Vector2( 0.0394055, 0.0394055 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.647677, -0.60135 )
+transform/scale = Vector2( 1.86675, 1.88815 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 

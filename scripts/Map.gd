@@ -17,6 +17,7 @@ onready var back2 = get_node("Background2")
 # References
 var screen_size = Vector2(Globals.get("display/width"), Globals.get("display/height"))
 var obstacle1 = preload("res://scenes/Obstacle1.tscn")
+var obstacle2 = preload("res://scenes/Obstacle2.tscn")
 var player_pos
 var last_pos
 var initial_pos
@@ -89,13 +90,32 @@ func role_switch_handler(r1, r2, r3):
 func beat_handler(beat_cnt):
 	get_node("HUD").beat_handler(beat_cnt)
 
+func random_1_to_10():
+	randomize()
+	return randi()%11+1
+
 func generate_obstacles(num, type):
-	# Type should be unbreakable or breakable
-	for i in range(num):
-		var obstacle = obstacle1.instance()
-		randomize()
-		obstacle.set_pos(Vector2((back1_width * randf()) + (screen_size.x / 2 - back1_width / 2), top_of_screen - 100))
-		add_child(obstacle)
+	if type == "unbreakable":
+		for i in range(num):
+			var obstacle = obstacle1.instance()
+			randomize()
+			obstacle.set_pos(Vector2((back1_width * randf()) + (screen_size.x / 2 - back1_width / 2), top_of_screen - 100))
+			add_child(obstacle)
+	elif type == "breakable":
+		for i in range(num):
+			var obstacle = obstacle2.instance()
+			randomize()
+			obstacle.set_pos(Vector2((back1_width * randf()) + (screen_size.x / 2 - back1_width / 2), top_of_screen - 100))
+			add_child(obstacle)
+	elif type == "mixed":
+		for i in range(num):
+			var obstacle
+			if random_1_to_10() > 5:
+				obstacle = obstacle1.instance()
+			else:
+				obstacle = obstacle2.instance()	
+			obstacle.set_pos(Vector2((back1_width * randf()) + (screen_size.x / 2 - back1_width / 2), top_of_screen - 100))
+			add_child(obstacle)
 
 func _on_Player_move():
 
@@ -113,31 +133,36 @@ func _on_Player_move():
 			last_pos = current_pos
 	elif current_pos.y > -level_2:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
-			# Generate new obstacle
-			generate_obstacles(2, "unbreakable")
-			# Set last_pos to current_pos
+			if random_1_to_10() > 7:
+				generate_obstacles(1, "breakable")
+			else:
+				generate_obstacles(2, "unbreakable")
 			last_pos = current_pos
 	elif current_pos.y > -level_3:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
-			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
-			# Set last_pos to current_pos
+			if random_1_to_10() > 7:
+				generate_obstacles(2, "unbreakable")
+			else:
+				generate_obstacles(3, "mixed")
 			last_pos = current_pos
 	elif current_pos.y > -level_4:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
-			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
-			# Set last_pos to current_pos
+			generate_obstacles(4, "mixed")
 			last_pos = current_pos
 	elif current_pos.y > -level_5:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
-			# Generate new obstacle
-			generate_obstacles(4, "unbreakable")
-			# Set last_pos to current_pos
+			if random_1_to_10() > 4:
+				generate_obstacles(4, "unbreakable")
+			else:
+				generate_obstacles(4, "mixed")
 			last_pos = current_pos
 	else:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 3)):
-			# Generate new obstacle
-			generate_obstacles(5, "unbreakable")
-			# Set last_pos to current_pos
+			var num = random_1_to_10()
+			if num > 7:
+				generate_obstacles(10, "breakable")
+			elif num > 3:
+				generate_obstacles(5, "mixed")
+			else:
+				generate_obstacles(3, "unbreakable")
 			last_pos = current_pos
