@@ -22,11 +22,11 @@ var last_pos
 var initial_pos
 var top_of_screen
 var bottom_of_screen
-	
-# Initialization
+
 onready var back1_pos = back1.get_pos()
 onready var back2_pos = back2.get_pos()
 onready var back1_height = back1.get_texture().get_height()
+onready var back1_width = back1.get_texture().get_width()
 	
 func _ready():
 	var rhythm_node = get_node("RhythmManager")
@@ -47,6 +47,11 @@ func _ready():
 	last_pos = player_pos
 	initial_pos = player_pos
 	
+	# Set background images dynamically
+		
+	back1.set_global_pos(Vector2(screen_size.x / 2, back1_height * 1.5))
+	back2.set_global_pos(Vector2(screen_size.x / 2, back1_height * 0.5))
+	
 	set_process(true)
 
 func _process(delta):
@@ -54,15 +59,14 @@ func _process(delta):
 	global.distance_from_line = abs(player_pos.y - get_node("Death Wall").get_global_pos().y)
 	
 	player_pos = player.get_global_pos()
-	
-	if player_pos.x < screen_size.x / 4:
-		var left_limit = Vector2 (screen_size.x / 4, player_pos.y)
-		player.set_global_pos(left_limit)
-	if player_pos.x > ((screen_size.x / 4) * 3):
-		var right_limit = Vector2 (((screen_size.x / 4) * 3), player_pos.y)
-		player.set_global_pos(right_limit)
+	var left_limit = screen_size.x / 2 - back1_width / 2
+	var right_limit = screen_size.x / 2 + back1_width / 2
+	if player_pos.x < left_limit:
+		player.set_global_pos(Vector2 (left_limit, player_pos.y))
+	if player_pos.x > right_limit:
+		player.set_global_pos(Vector2 (right_limit, player_pos.y))
 		
-		# Current camera and screen positions
+	# Current camera and screen positions
 	top_of_screen = player_pos.y - (screen_size.y / 2)
 	bottom_of_screen = player_pos.y + (screen_size.y / 2)
 	
@@ -90,7 +94,7 @@ func generate_obstacles(num, type):
 	for i in range(num):
 		var obstacle = obstacle1.instance()
 		randomize()
-		obstacle.set_pos(Vector2((screen_size.x / 4) + (screen_size.x / 2) * randf(), top_of_screen - 100))
+		obstacle.set_pos(Vector2((back1_width * randf()) + (screen_size.x / 2 - back1_width / 2), top_of_screen - 100))
 		add_child(obstacle)
 
 func _on_Player_move():
