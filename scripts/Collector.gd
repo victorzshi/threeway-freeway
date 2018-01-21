@@ -1,7 +1,5 @@
 extends Area2D
 
-onready var root_camera = get_tree().get_root().get_node("Map/Camera2D")
-
 func _ready():
 	connect("body_enter", self, "_on_object_enter")	
 	

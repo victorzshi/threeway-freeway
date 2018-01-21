@@ -95,7 +95,7 @@ func _fixed_process(delta):
 				is_moving = true
 	elif left_player_role == 'shooting':
 		if gun_cd.get_time_left() == 0:
-			if Input.is_action_pressed("leftt_shoot_forward"):
+			if Input.is_action_pressed("left_shoot_forward"):
 				shoot_forward()
 			if Input.is_action_pressed("left_shoot_right"):
 				shoot_right()
