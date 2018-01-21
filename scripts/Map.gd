@@ -61,6 +61,22 @@ func _process(delta):
 	if player_pos.x > ((screen_size.x / 4) * 3):
 		var right_limit = Vector2 (((screen_size.x / 4) * 3), player_pos.y)
 		player.set_global_pos(right_limit)
+		
+		# Current camera and screen positions
+	top_of_screen = player_pos.y - (screen_size.y / 2)
+	bottom_of_screen = player_pos.y + (screen_size.y / 2)
+	
+	# Generate infinite road background image
+	if back1_pos.y > bottom_of_screen + back1_height / 2:
+		print("Moving Background1")
+		back1_pos.y = back1_pos.y - (2 * back1_height)
+	if back2_pos.y > bottom_of_screen + back1_height / 2:
+		print("Moving Background2")
+		back2_pos.y = back2_pos.y - (2 * back1_height)
+		
+	get_node("Background1").set_pos(back1_pos)
+	get_node("Background2").set_pos(back2_pos)
+	
 
 func role_switch_handler(r1, r2, r3):
 	get_node("HUD").role_switch_handler(r1, r2, r3)
@@ -78,21 +94,7 @@ func generate_obstacles(num, type):
 		add_child(obstacle)
 
 func _on_Player_move():
-	# Current camera and screen positions
-	top_of_screen = player_pos.y - (screen_size.y / 2)
-	bottom_of_screen = player_pos.y + (screen_size.y / 2)
-	
-	# Generate infinite road background image
-	if back1_pos.y > bottom_of_screen + back1_height / 2:
-		print("Moving Background1")
-		back1_pos.y = back1_pos.y - (2 * back1_height)
-	if back2_pos.y > bottom_of_screen + back1_height / 2:
-		print("Moving Background2")
-		back2_pos.y = back2_pos.y - (2 * back1_height)
-		
-	get_node("Background1").set_pos(back1_pos)
-	get_node("Background2").set_pos(back2_pos)
-	
+
 	# Generate obstacles based on distance of player
 	# Use function to generate pre-loaded instance of obstacle
 	# at a random x-coord along screen dimensions

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/menu_prompt_blink.tres" type="Animation" id=2]
-[ext_resource path="res://scenes/GradientBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/beatGradient.png" type="Texture" id=3]
+[ext_resource path="res://scenes/GradientBackground.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -93,9 +94,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 100.0
+margin/left = 103.0
 margin/top = 230.0
-margin/right = 700.0
+margin/right = 703.0
 margin/bottom = 330.0
 custom_fonts/font = SubResource( 5 )
 text = "Press Space to Begin!"
@@ -105,7 +106,11 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Sprite" type="Sprite" parent="MenuAnimations"]
+[node name="Transition" type="Sprite" parent="MenuAnimations"]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+centered = false
 
 [node name="InstructionsLabel" type="Label" parent="."]
 
@@ -129,7 +134,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="GradientBackground" parent="." instance=ExtResource( 3 )]
+[node name="GradientBackground" parent="." instance=ExtResource( 4 )]
 
 layer = 0
 
