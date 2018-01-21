@@ -38,7 +38,6 @@ texture = ExtResource( 3 )
 
 [node name="Death Wall" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 474.187, 1386.94 )
 input/pickable = false
 collision/layers = 1

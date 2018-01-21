@@ -9,5 +9,5 @@ func _on_object_enter(body):
 		print("GAME OVER")
 		global.last_score = global.current_distance
 		get_tree().change_scene("res://scenes/Menu.tscn")
-	elif body.is_in_group("obstacle"):
+	elif body.is_in_group("obstacle") or body.is_in_group("obs_destruct"):
 		body.free()
