@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var distance = 0
 var difference  = 0
+var beats_per_change = 8
 
 var role_textures = {
 	"turning": [
@@ -47,5 +48,11 @@ func role_switch_handler(role_0, role_1, role_2):
 		get_node("RoleImage" + str(i)).set_texture(role_textures[roles[i]][i])
 
 func beat_handler(beat_cnt):
-	#process beat
-	pass
+	var diff = beats_per_change - beat_cnt
+	if diff < 4:
+		get_node("BeatImage").show_blur(0.1 * 2 * (4 - diff))
+		get_node("SwitchLabel").show_prompt(str(diff))	
+		
+	elif beat_cnt == 0:
+		getNode("BeatImage").show_blur(1)		
+		pass

@@ -165,7 +165,3 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-
-[connection signal="move" from="Player" to="." method="_on_Player_move"]
-
-

@@ -49,6 +49,7 @@ func _fixed_process(delta):
 				shoot_right()
 			if Input.is_action_pressed("right_shoot_left"):
 				shoot_left()
+
 	if middle_player_role == 'turning':
 		if Input.is_action_pressed("middle_turn_left"):
 			rotation += rotation_speed * delta
@@ -64,6 +65,14 @@ func _fixed_process(delta):
 			if(Input.is_action_pressed("middle_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
 				is_moving = true
+	elif middle_player_role == 'shooting':
+		if gun_cd.get_time_left() == 0:
+			if Input.is_action_pressed("middle_shoot_forward"):
+				shoot_forward()
+			if Input.is_action_pressed("middle_shoot_right"):
+				shoot_right()
+			if Input.is_action_pressed("middle_shoot_left"):
+				shoot_left()
 
 	if left_player_role == 'turning':
 		if Input.is_action_pressed("left_turn_left"):
@@ -80,6 +89,14 @@ func _fixed_process(delta):
 			if(Input.is_action_pressed("left_reverse")):
 				acceleration = Vector2(burst, 0).rotated(rotation) * -1
 				is_moving = true
+	elif left_player_role == 'shooting':
+		if gun_cd.get_time_left() == 0:
+			if Input.is_action_pressed("leftt_shoot_forward"):
+				shoot_forward()
+			if Input.is_action_pressed("left_shoot_right"):
+				shoot_right()
+			if Input.is_action_pressed("left_shoot_left"):
+				shoot_left()
 
 	acceleration += velocity * delta
 	velocity += acceleration * delta
