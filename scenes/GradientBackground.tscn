@@ -13,10 +13,10 @@ tracks/0/path = NodePath("AnimationPlayer/bg_image:modulate")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 2, 4, 6, 8, 10 ),
-"transitions": FloatArray( 1, 1, 1, 1, 1, 1.36604 ),
+"times": FloatArray( 0, 2, 4, 6, 8, 9 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.221326, 0.0954437, 0.542969, 1 ), Color( 0.0725708, 0.187956, 0.640625, 1 ), Color( 0.0408783, 0.550781, 0.121407, 1 ), Color( 0.480469, 0.30305, 0.0262756, 1 ), Color( 0.5, 0.0585938, 0.0999756, 1 ), Color( 0.477834, 0.196259, 0.851563, 1 ) ]
+"values": [ Color( 0.248261, 0.0585938, 0.5, 1 ), Color( 0.0725708, 0.187956, 0.640625, 1 ), Color( 0.550781, 0.0408783, 0.255994, 1 ), Color( 0.480469, 0.0262756, 0.196598, 1 ), Color( 0.248261, 0.0585938, 0.5, 1 ), Color( 0.221326, 0.0954437, 0.542969, 1 ) ]
 }
 
 [node name="GradientBackground" type="CanvasLayer"]
@@ -41,6 +41,6 @@ autoplay = "gradient"
 
 texture = ExtResource( 1 )
 centered = false
-modulate = Color( 0.202957, 0.106867, 0.555028, 1 )
+modulate = Color( 0.221326, 0.0954437, 0.542969, 1 )
 
 
