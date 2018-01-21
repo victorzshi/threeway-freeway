@@ -2,12 +2,12 @@ extends Node2D
 
 # Game parameters
 var obstacle_interval = 1000 # Higher is easier
-var difficulty_scale = 0.5 # Lower is harder
+var difficulty_scale = 0.6 # Lower is harder
 var level_1 = 500
 var level_2 = 1000
-var level_3 = 1500
-var level_4 = 2000
-var level_5 = 2500
+var level_3 = 2000
+var level_4 = 4000
+var level_5 = 10000
 
 # Nodes
 onready var player = get_node("Player")
@@ -52,6 +52,15 @@ func _ready():
 func _process(delta):
 	global.current_distance = abs(player_pos.y - initial_pos.y)
 	global.distance_from_line = abs(player_pos.y - get_node("Death Wall").get_global_pos().y)
+	
+	player_pos = player.get_global_pos()
+	
+	if player_pos.x < screen_size.x / 4:
+		var left_limit = Vector2 (screen_size.x / 4, player_pos.y)
+		player.set_global_pos(left_limit)
+	if player_pos.x > ((screen_size.x / 4) * 3):
+		var right_limit = Vector2 (((screen_size.x / 4) * 3), player_pos.y)
+		player.set_global_pos(right_limit)
 
 func role_switch_handler(r1, r2, r3):
 	get_node("HUD").role_switch_handler(r1, r2, r3)
@@ -65,13 +74,10 @@ func generate_obstacles(num, type):
 	for i in range(num):
 		var obstacle = obstacle1.instance()
 		randomize()
-		obstacle.set_pos(Vector2(screen_size.x * randf(), top_of_screen - 100))
+		obstacle.set_pos(Vector2((screen_size.x / 4) + (screen_size.x / 2) * randf(), top_of_screen - 100))
 		add_child(obstacle)
 
 func _on_Player_move():
-	print("Player is moving...")
-	player_pos = player.get_global_pos()
-	
 	# Current camera and screen positions
 	top_of_screen = player_pos.y - (screen_size.y / 2)
 	bottom_of_screen = player_pos.y + (screen_size.y / 2)
@@ -96,36 +102,36 @@ func _on_Player_move():
 	if current_pos.y > -level_1:
 		if (last_pos.y - current_pos.y > obstacle_interval):
 			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
+			generate_obstacles(1, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_2:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			# Generate new obstacle
-			generate_obstacles(3, "unbreakable")
+			generate_obstacles(2, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_3:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			# Generate new obstacle
-			generate_obstacles(4, "unbreakable")
+			generate_obstacles(3, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_4:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
 			# Generate new obstacle
-			generate_obstacles(5, "unbreakable")
+			generate_obstacles(3, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	elif current_pos.y > -level_5:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
 			# Generate new obstacle
-			generate_obstacles(6, "unbreakable")
+			generate_obstacles(4, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
 	else:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 3)):
 			# Generate new obstacle
-			generate_obstacles(7, "unbreakable")
+			generate_obstacles(5, "unbreakable")
 			# Set last_pos to current_pos
 			last_pos = current_pos
