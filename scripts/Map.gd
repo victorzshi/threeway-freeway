@@ -3,11 +3,11 @@ extends Node2D
 # Game parameters
 var obstacle_interval = 1000 # Higher is easier
 var difficulty_scale = 0.5 # Lower is harder
-var level_1 = 200
-var level_2 = 300
-var level_3 = 400
-var level_4 = 500
-var level_5 = 600
+var level_1 = 500
+var level_2 = 1000
+var level_3 = 1500
+var level_4 = 2000
+var level_5 = 2500
 
 # Nodes
 onready var player = get_node("Player")

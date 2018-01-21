@@ -39,7 +39,7 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 bullet = ExtResource( 2 )
 rotation_speed = 3
-MAX_VELOCITY = 1000
+MAX_VELOCITY = 500
 burst = 500
 friction = 0.95
 

@@ -7,7 +7,7 @@ onready var gun_cd = get_node("gun_cd")
 const MOVE_SPEED = 500
 
 var velocity = Vector2()
-var rotation = 0
+var rotation = PI/2
 var acceleration = Vector2()
 
 var is_moving

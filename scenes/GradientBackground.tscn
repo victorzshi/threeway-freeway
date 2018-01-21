@@ -41,6 +41,6 @@ autoplay = "gradient"
 
 texture = ExtResource( 1 )
 centered = false
-modulate = Color( 0.221326, 0.0954437, 0.542969, 1 )
+modulate = Color( 0.202957, 0.106867, 0.555028, 1 )
 
 
