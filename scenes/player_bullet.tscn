@@ -41,4 +41,32 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[node name="destroy" type="Particles2D" parent="."]
+
+transform/pos = Vector2( -0.0416056, -3.33698 )
+transform/scale = Vector2( 2, 2 )
+config/amount = 32
+config/lifetime = 0.5
+config/emit_timeout = 0.5
+config/emitting = false
+config/process_mode = 1
+config/explosiveness = 0.15
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 104.13
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 8.67
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.361877, 0.945313, 0.685502, 1 )
+
 

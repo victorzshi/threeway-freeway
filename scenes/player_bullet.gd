@@ -21,12 +21,13 @@ func _fixed_process(delta):
 	set_pos(get_pos() + velocity * delta)
 
 func destroy():
-	queue_free()
+	get_node("destroy").set_emitting(true)
+	self.queue_free()
 
 func _on_object_enter(body):
 	if body.is_in_group("obs_destruct"):
 		# play explosion
 		body.free()
-		self.queue_free()
+		destroy()
 	elif body.is_in_group("obstacle"):
-		self.queue_free()
+		destroy()

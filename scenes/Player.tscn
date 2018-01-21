@@ -4,11 +4,10 @@
 [ext_resource path="res://scenes/player_bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/ship1.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
 [sub_resource type="ColorRamp" id=2]
 
@@ -25,8 +24,8 @@ colors = ColorArray( 0, 0, 0, 1, 0.851562, 0.851562, 0.851562, 0.967509, 1, 1, 1
 ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.670541, 0, 0, 0.838014, 0.693027, -2.90133 )
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 3.19935, 0, 0, 3.05608, -1.59762, 2.78977 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -124,9 +123,9 @@ color/color_ramp = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0.693027, -2.90133 )
-transform/scale = Vector2( 0.670541, 0.838014 )
-shape = SubResource( 1 )
+transform/pos = Vector2( -1.59762, 2.78977 )
+transform/scale = Vector2( 3.19935, 3.05608 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 

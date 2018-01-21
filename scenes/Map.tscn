@@ -38,6 +38,7 @@ texture = ExtResource( 3 )
 
 [node name="Death Wall" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 474.187, 1386.94 )
 input/pickable = false
 collision/layers = 1
@@ -80,6 +81,7 @@ _update_shape_index = 0
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 400, 400 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
