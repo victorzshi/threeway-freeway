@@ -80,7 +80,6 @@ _update_shape_index = 0
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 400, 400 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

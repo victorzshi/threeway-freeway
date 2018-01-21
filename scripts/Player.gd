@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (PackedScene) var bullet
 onready var bullet_container = get_node("bullet_container")
 onready var gun_cd = get_node("gun_cd")
+onready var laser = get_node("laser")
 
 const MOVE_SPEED = 500
 
@@ -130,18 +131,22 @@ func _ready():
 
 func shoot_forward():
 	gun_cd.start()
+	laser.play("laser")
+	#print("pew")
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
 	shot.start(get_rot(), get_node("front").get_global_pos())
 
 func shoot_right():
 	gun_cd.start()
+	laser.play("laser")
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
 	shot.start(get_rot() - PI/4, get_node("right").get_global_pos())
 
 func shoot_left():
 	gun_cd.start()
+	laser.play("laser")
 	var shot = bullet.instance()
 	bullet_container.add_child(shot)
 	shot.start(get_rot() + PI/4, get_node("left").get_global_pos())
