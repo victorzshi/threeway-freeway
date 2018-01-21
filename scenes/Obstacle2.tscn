@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://assets/breakable.png" type="Texture" id=1]
+[ext_resource path="res://assets/breakable_block.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,7 +26,6 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-visibility/self_opacity = 0.76
 transform/pos = Vector2( -1.06975, -0.645504 )
 transform/scale = Vector2( 0.0394055, 0.0394055 )
 texture = ExtResource( 1 )

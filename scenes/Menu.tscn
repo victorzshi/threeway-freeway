@@ -40,7 +40,7 @@ font_path = "res://assets/NotoSans-Italic.ttf"
 
 [sub_resource type="DynamicFont" id=7]
 
-font/size = 16
+font/size = 26
 font/use_mipmaps = false
 font/use_filter = false
 font/font = SubResource( 6 )
@@ -121,7 +121,7 @@ size_flags/vertical = 0
 margin/left = 120.0
 margin/top = 450.0
 margin/right = 680.0
-margin/bottom = 629.0
+margin/bottom = 650.0
 custom_fonts/font = SubResource( 7 )
 text = "One person turns
 One person accelerates
