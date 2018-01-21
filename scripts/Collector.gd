@@ -2,6 +2,7 @@ extends Area2D
 
 onready var ship_explosion = preload("res://scenes/ShipExplosion.tscn")
 onready var crate_explosion = preload("res://scenes/CrateExplosion.tscn")
+onready var death_sound = get_node("death_sound")
 
 # Screen shake variables
 onready var camera = get_tree().get_root().get_node("Map/Player/Camera2D")
@@ -19,6 +20,8 @@ func _on_object_enter(body):
 		
 		# Hide ship and show explosion
 		body.hide()
+		death_sound.play("death")
+		
 		shake()
 		var explode = ship_explosion.instance()
 		explode.set_global_pos(body.get_global_pos())
@@ -34,11 +37,13 @@ func _on_object_enter(body):
 		t.start()
 		yield(t, "timeout")
 		
+		#death_sound.play("lose")
 		get_tree().change_scene("res://scenes/Menu.tscn")
 		
 	elif body.is_in_group("obstacle") or body.is_in_group("obs_destruct"):
 		
 		var explode = crate_explosion.instance()
+		death_sound.play("block")
 		explode.set_global_pos(body.get_global_pos())
 		explode.set_emitting(true)
 		get_node("../../").add_child(explode)

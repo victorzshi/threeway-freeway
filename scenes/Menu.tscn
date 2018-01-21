@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/menu_prompt_blink.tres" type="Animation" id=2]
 [ext_resource path="res://assets/beatGradient.png" type="Texture" id=3]
 [ext_resource path="res://scenes/GradientBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/start.wav" type="Sample" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -40,10 +41,19 @@ font_path = "res://assets/NotoSans-Italic.ttf"
 
 [sub_resource type="DynamicFont" id=7]
 
-font/size = 26
+font/size = 16
 font/use_mipmaps = false
 font/use_filter = false
 font/font = SubResource( 6 )
+
+[sub_resource type="SampleLibrary" id=8]
+
+samples/start = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
 
 [node name="Menu" type="CanvasLayer"]
 
@@ -121,7 +131,7 @@ size_flags/vertical = 0
 margin/left = 120.0
 margin/top = 450.0
 margin/right = 680.0
-margin/bottom = 650.0
+margin/bottom = 629.0
 custom_fonts/font = SubResource( 7 )
 text = "One person turns
 One person accelerates
@@ -137,5 +147,22 @@ max_lines_visible = -1
 [node name="GradientBackground" parent="." instance=ExtResource( 4 )]
 
 layer = 0
+
+[node name="start" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = SubResource( 8 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
 
 
