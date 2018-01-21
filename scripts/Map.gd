@@ -134,16 +134,16 @@ func _on_Player_move():
 	elif current_pos.y > -level_2:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			if random_1_to_10() > 7:
-				generate_obstacles(1, "breakable")
+				generate_obstacles(2, "breakable")
 			else:
-				generate_obstacles(2, "unbreakable")
+				generate_obstacles(1, "unbreakable")
 			last_pos = current_pos
 	elif current_pos.y > -level_3:
 		if (last_pos.y - current_pos.y > obstacle_interval * difficulty_scale):
 			if random_1_to_10() > 7:
-				generate_obstacles(2, "unbreakable")
-			else:
 				generate_obstacles(3, "mixed")
+			else:
+				generate_obstacles(2, "unbreakable")
 			last_pos = current_pos
 	elif current_pos.y > -level_4:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
@@ -152,17 +152,17 @@ func _on_Player_move():
 	elif current_pos.y > -level_5:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 2)):
 			if random_1_to_10() > 4:
-				generate_obstacles(4, "unbreakable")
+				generate_obstacles(6, "mixed")
 			else:
-				generate_obstacles(4, "mixed")
+				generate_obstacles(4, "unbreakable")
 			last_pos = current_pos
 	else:
 		if (last_pos.y - current_pos.y > obstacle_interval * pow(difficulty_scale, 3)):
 			var num = random_1_to_10()
 			if num > 7:
-				generate_obstacles(10, "breakable")
+				generate_obstacles(20, "breakable")
 			elif num > 3:
-				generate_obstacles(5, "mixed")
+				generate_obstacles(6, "mixed")
 			else:
-				generate_obstacles(3, "unbreakable")
+				generate_obstacles(4, "unbreakable")
 			last_pos = current_pos
