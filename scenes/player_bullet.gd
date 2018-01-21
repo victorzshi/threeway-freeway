@@ -13,4 +13,3 @@ func start(direction, position):
 
 func _fixed_process(delta):
 	set_pos(get_pos() + velocity * delta)
-	if 

@@ -19,16 +19,6 @@ points = Vector2Array( 0.190477, -7.3399, 7.14286, 7.93103, 0.761903, 2.51232 )
 custom_solver_bias = 0.0
 points = Vector2Array( -0.571429, 2.41379, 0.190477, -7.3399, 0.761903, 2.51232 )
 
-[sub_resource type="ColorRamp" id=4]
-
-offsets = FloatArray( 0, 0.0153846, 1 )
-colors = ColorArray( 0, 0, 0, 1, 0.699219, 0.699219, 0.699219, 1, 1, 1, 1, 0 )
-
-[sub_resource type="ColorRamp" id=5]
-
-offsets = FloatArray( 0, 1 )
-colors = ColorArray( 1, 0.400787, 0.00390625, 1, 1, 1, 1, 0 )
-
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -96,68 +86,4 @@ transform/pos = Vector2( 20, 0 )
 
 transform/pos = Vector2( -20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
-[node name="Smoke" type="Particles2D" parent="."]
-
-config/amount = 100
-config/lifetime = 3.0
-config/process_mode = 1
-config/offset = Vector2( 0, 10 )
-config/local_space = false
-params/direction = 0.0
-params/spread = 50.0
-params/linear_velocity = 100.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 9.8
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 5.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-color/color_ramp = SubResource( 4 )
-
-[node name="Fire" type="Particles2D" parent="."]
-
-config/amount = 100
-config/lifetime = 2.0
-config/process_mode = 1
-config/offset = Vector2( 0, 10 )
-config/local_space = false
-params/direction = 0.0
-params/spread = 25.0
-params/linear_velocity = 100.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 9.8
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 5.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-color/color_ramp = SubResource( 5 )
-
-transform/pos = Vector2( 0.313636, -2.12799 )
-transform/scale = Vector2( 0.920827, 0.871638 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
