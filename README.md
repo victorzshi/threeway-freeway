@@ -1,6 +1,6 @@
 # Threeway Freeway
 
-A cooperative shoot 'em up game designed to be played by 3 people simultaneously.
+A cooperative endless runner game designed to be played by 3 people simultaneously.
 
 ![Gameplay](threeway-freeway.gif)
 
@@ -14,16 +14,16 @@ Make sure WebAssembly is supported in your browser. Google Chrome is recommended
 
 ## About
 
-Built with Godot v2.14 by:
+Built in 3 days with Godot v2.14 by:
 
 - Andrew McCann (Programmer)
 - Jerry Yuan Chen (Programmer)
 - Justin Koh (Programmer/Artist)
-- Victor Shi (Programmer)
+- Victor Zhuoyue Shi (Programmer)
 
 ## Awards
 
-See the [Devpost submission](https://devpost.com/software/threeway-freeway) for details.
+See the [Devpost submission](https://devpost.com/software/threeway-freeway) for details:
 
 - Best Domain Name from Domain.com
 - Best Game Award by Ubisoft
