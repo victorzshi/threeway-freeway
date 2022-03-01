@@ -1,6 +1,6 @@
 # Threeway Freeway
 
-A cooperative endless runner game designed to be played by 3 people simultaneously.
+A web game built during [UofTHacks V](https://uofthacksv.devpost.com/). Designed to be played by 3 people simultaneously.
 
 ![Gameplay](threeway-freeway.gif)
 
@@ -21,7 +21,7 @@ See the [Devpost submission](https://devpost.com/software/threeway-freeway) for 
 
 ## About
 
-Built in 3 days with Godot v2.14 by:
+Built in 36 hours with Godot v2.14 by:
 
 - Andrew McCann (Programmer)
 - Jerry Yuan Chen (Programmer)
