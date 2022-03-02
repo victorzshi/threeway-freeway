@@ -8,7 +8,7 @@ Click [here](https://victorzshi.github.io/threeway-freeway/) to play.
 
 Make sure WebAssembly is supported in your browser (Google Chrome is recommended).
 
-Built in 36 hours for [UofTHacks V](https://uofthacksv.devpost.com/) using Godot. 
+Built in 36 hours for [UofTHacks V](https://uofthacksv.devpost.com/). 
 
 ## Awards
 
