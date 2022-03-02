@@ -1,27 +1,23 @@
 # Threeway Freeway
 
-A web game built during [UofTHacks V](https://uofthacksv.devpost.com/). Designed to be played by 3 people simultaneously.
+An endless runner game designed to be played by 3 people simultaneously. Click [here](https://victorzshi.github.io/threeway-freeway/) to play.
+
+Make sure WebAssembly is supported in your browser (Google Chrome is recommended).
+
+Built in 36 hours for [UofTHacks V](https://uofthacksv.devpost.com/) using Godot. 
 
 ![Gameplay](threeway-freeway.gif)
 
-> But you can get pretty good playing it solo.
-
-## How to Play
-
-Click [here](https://victorzshi.github.io/threeway-freeway/) to play the game.
-
-Make sure WebAssembly is supported in your browser. Google Chrome is recommended.
+> You can get pretty good playing it solo.
 
 ## Awards
-
-See the [Devpost submission](https://devpost.com/software/threeway-freeway) for details:
 
 - Best Domain Name from Domain.com
 - Best Game Award by Ubisoft
 
-## About
+See the [Devpost submission](https://devpost.com/software/threeway-freeway) for details.
 
-Built in 36 hours with Godot v2.14 by:
+## Authors
 
 - Andrew McCann (Programmer)
 - Jerry Yuan Chen (Programmer)
