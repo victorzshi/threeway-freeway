@@ -1,14 +1,14 @@
 # Threeway Freeway
 
-An endless runner game designed to be played by 3 people simultaneously. Click [here](https://victorzshi.github.io/threeway-freeway/) to play.
+![Gameplay](threeway-freeway.gif)
+
+An endless runner game designed to be played by 3 people simultaneously.
+
+Click [here](https://victorzshi.github.io/threeway-freeway/) to play.
 
 Make sure WebAssembly is supported in your browser (Google Chrome is recommended).
 
 Built in 36 hours for [UofTHacks V](https://uofthacksv.devpost.com/) using Godot. 
-
-![Gameplay](threeway-freeway.gif)
-
-> You can get pretty good playing it solo.
 
 ## Awards
 
